@@ -8,7 +8,7 @@ let paragraphCountControl = document.querySelector("#p-count");
 let wordCountLabel = document.querySelector("#w-count-label");
 let paragraphCountLabel = document.querySelector("#p-count-label");
 let wordCount = wordCountControl.value;
-let paragraphCount = paragraphCountControl.value
+let paragraphCount = paragraphCountControl.value;
 let copy = document.querySelector(".copy");
 
 
