@@ -1,8 +1,8 @@
-import './style.css'
-import { lorem } from './lorem'
+import './style.css';
+import { lorem } from './lorem';
 
 let text = lorem.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g, "").split(' ');
-let lastReturnedCharacter;
+let lastCharacter;
 let wordCountControl = document.querySelector("#w-count");
 let paragraphCountControl = document.querySelector("#p-count");
 let wordCountLabel = document.querySelector("#w-count-label");
@@ -12,11 +12,11 @@ let paragraphCount = paragraphCountControl.value;
 let copy = document.querySelector(".copy");
 
 
-function generateRandomSpecialCharacter() {
+function generateRandomPunctuation() {
     let characters = [",", "!", ".", "?"];
-    let characterToBeReturned = characters[Math.floor(Math.random() * characters.length)];
-    lastReturnedCharacter = characterToBeReturned;
-    return characterToBeReturned;
+    let character = characters[Math.floor(Math.random() * characters.length)];
+    lastCharacter = character;
+    return character;
 }
 
 function generateParagraph(count = 100) {
@@ -27,15 +27,15 @@ function generateParagraph(count = 100) {
     // Capitalize the first letter in the first word in every paragraph;
     paragraph[0] = paragraph[0].replace(paragraph[0][0], paragraph[0][0].toUpperCase());
     // Add a full-stop to the last word in the paragraph.
-    paragraph[paragraph.length - 1] = paragraph[paragraph.length - 1].replace(paragraph[paragraph.length - 1], paragraph[paragraph.length - 1] + ".")
+    paragraph[paragraph.length - 1] = paragraph[paragraph.length - 1].replace(paragraph[paragraph.length - 1], paragraph[paragraph.length - 1] + ".");
     // Add punctuations;
     paragraph.forEach((word, index) => {
         // Check if the index is not zero and divisible by 10.
         if (index > 0 && index % 10 === 0) {
             let randomNum = Math.floor(Math.random() * 8);
-            paragraph[index + randomNum] = paragraph[index + randomNum].replace(paragraph[index + randomNum], paragraph[index + randomNum] + generateRandomSpecialCharacter());
+            paragraph[index + randomNum] = paragraph[index + randomNum].replace(paragraph[index + randomNum], paragraph[index + randomNum] + generateRandomPunctuation());
             // Capitalize the first letter of the next word if the punctuation mark that comes before it is not ","
-            if (lastReturnedCharacter !== ",") paragraph[index + randomNum + 1] = paragraph[index + randomNum + 1].replace(paragraph[index + randomNum + 1][0], paragraph[index + randomNum + 1][0].toUpperCase());
+            if (lastCharacter !== ",") paragraph[index + randomNum + 1] = paragraph[index + randomNum + 1].replace(paragraph[index + randomNum + 1][0], paragraph[index + randomNum + 1][0].toUpperCase());
         }
     })
     return paragraph.join(" ");
