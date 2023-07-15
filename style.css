@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600&display=swap');
+
+html{
+    overflow: hidden;
+    font-family: 'Work Sans', sans-serif;
+}
+
+#app{
+    display: grid;
+    grid-template-columns: 35% 65%;
+    height: 100vh;
+}
+*{
+    margin:0;
+}
+
+h1{
+    margin-left: 10px;
+}
+#app > div{
+    max-height: 90vh;
+    overflow-y: auto;
+    text-align: justify;
+    padding: 10px;
+}
+
+#app > div:nth-child(1){
+    border-top: 1px solid;
+    border-right: 1px solid;
+    border-bottom: 1px solid;
+    height: 100%;
+}
+
+.control:nth-child(2){
+    margin-top: 15px;
+}
+
+.control > div{
+    display: flex;
+    gap:10px;
+}
+input{
+    width: 100%;
+}
+form{
+    display: inline;
+}
+button {
+    padding:10px;
+    margin-top: 10px;
+}
+
+.info{
+    position: relative;
+    background-color: rgb(243, 243, 78);
+    padding:10px;
+    text-align: left;
+    font-size: 14px;
+    border-radius: 10px;
+    top:10px;
+}
