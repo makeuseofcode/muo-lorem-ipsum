@@ -32,7 +32,7 @@ function generateParagraph(count = 100) {
     paragraph.forEach((word, index) => {
         // Check if the index is not zero and divisible by 10.
         if (index > 0 && index % 10 === 0) {
-            let randomNum = Math.floor(Math.random() * 8);
+            let randomNum = Math.floor(Math.random() * 4);
             paragraph[index + randomNum] = paragraph[index + randomNum].replace(paragraph[index + randomNum], paragraph[index + randomNum] + generateRandomPunctuation());
             // Capitalize the first letter of the next word if the punctuation mark that comes before it is not ","
             if (lastCharacter !== ",") paragraph[index + randomNum + 1] = paragraph[index + randomNum + 1].replace(paragraph[index + randomNum + 1][0], paragraph[index + randomNum + 1][0].toUpperCase());
