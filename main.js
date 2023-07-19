@@ -25,7 +25,8 @@ function generateParagraph(count = 100) {
         paragraph.push(text[Math.floor(Math.random() * text.length)].toLowerCase());
     }
     // Capitalize the first letter in the first word in every paragraph;
-    paragraph[0] = paragraph[0].replace(paragraph[0][0], paragraph[0][0].toUpperCase());
+    let x = paragraph[0];
+    x = x.replace(x[0], x[0].toUpperCase());
     // Add a full-stop to the last word in the paragraph.
     let i = paragraph.length - 1;
     let y = paragraph[i];
