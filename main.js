@@ -2,7 +2,7 @@ import './style.css';
 import { lorem } from './lorem';
 
 let text = lorem.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g, "").split(' ');
-let lastCharacter;
+let lastChar;
 let wordCountControl = document.querySelector("#w-count");
 let paragraphCountControl = document.querySelector("#p-count");
 let wordCountLabel = document.querySelector("#w-count-label");
@@ -15,7 +15,7 @@ let copy = document.querySelector(".copy");
 function generateRandomPunctuation() {
     let characters = [",", "!", ".", "?"];
     let character = characters[Math.floor(Math.random() * characters.length)];
-    lastCharacter = character;
+    lastChar = character;
     return character;
 }
 
@@ -27,15 +27,19 @@ function generateParagraph(count = 100) {
     // Capitalize the first letter in the first word in every paragraph;
     paragraph[0] = paragraph[0].replace(paragraph[0][0], paragraph[0][0].toUpperCase());
     // Add a full-stop to the last word in the paragraph.
-    paragraph[paragraph.length - 1] = paragraph[paragraph.length - 1].replace(paragraph[paragraph.length - 1], paragraph[paragraph.length - 1] + ".");
+    let i = paragraph.length - 1;
+    let y = paragraph[i];
+    y = y.replace(y, y + ".");
     // Add punctuations;
     paragraph.forEach((word, index) => {
         // Check if the index is not zero and divisible by 10.
         if (index > 0 && index % 10 === 0) {
             let randomNum = Math.floor(Math.random() * 4);
-            paragraph[index + randomNum] = paragraph[index + randomNum].replace(paragraph[index + randomNum], paragraph[index + randomNum] + generateRandomPunctuation());
+            let i = index + randomNum;
+            y = y.replace(y, y + generateRandomPunctuation());
             // Capitalize the first letter of the next word if the punctuation mark that comes before it is not ","
-            if (lastCharacter !== ",") paragraph[index + randomNum + 1] = paragraph[index + randomNum + 1].replace(paragraph[index + randomNum + 1][0], paragraph[index + randomNum + 1][0].toUpperCase());
+            let letter = paragraph[i + 1];
+            if (lastChar !== ",") letter = letter.replace(letter[0], letter[0].toUpperCase());
         }
     })
     return paragraph.join(" ");
