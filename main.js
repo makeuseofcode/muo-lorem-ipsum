@@ -41,7 +41,7 @@ function generateParagraph(count = 100) {
             paragraph[pos] = randWord.replace(randWord, randWord + generateRandomPunctuation());
             // Capitalize the first letter of the next word if the punctuation mark that comes before it is not ","
             let nWord=paragraph[pos + 1];
-            if (lastChar !== ",") nWord = nWord.replace(nWord[0], nWord[0].toUpperCase());
+            if (lastChar !== ",") paragraph[pos + 1] = nWord.replace(nWord[0], nWord[0].toUpperCase());
         }
     })
     return paragraph.join(" ");
